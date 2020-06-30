@@ -25,12 +25,12 @@ public:
 
   public:
     // Returns the key's identifier.
-    nostd::string_view GetIdentifier(){
+    virtual nostd::string_view GetIdentifier(){
       return "";
     }
     
     // Returns the key's name
-    nostd::string_view GetName(){
+    virtual nostd::string_view GetName(){
       return "";
     }
 
@@ -40,14 +40,10 @@ public:
     // Constructs a new Key with the passed in name. Sets the identifier as
     // the address of this object.
     Key(nostd::string_view key_name){}
-
-    char key_name_[50];
-
-    char identifier_[50];
   };
 
   // Creates a key with the passed in name and returns it. 
-  Key CreateKey(nostd::string_view key_name){
+  virtual Key CreateKey(nostd::string_view key_name){
     return Key(key_name);
   }
 
@@ -69,7 +65,7 @@ public:
   }
 
   // Returns the value associated with the passed in key.
-  common::AttributeValue GetValue(Key key){
+  virtual common::AttributeValue GetValue(Key key){
     return 0;
   }
 
