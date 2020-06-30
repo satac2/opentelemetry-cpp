@@ -16,10 +16,10 @@ class Context
 {
 
 public:
+  
   // The Key class is used to obscure access from the
   //  user to the context map. The identifier is used as a key
   // to the context map.
-  
   class Key
   {
 
@@ -47,7 +47,7 @@ public:
     return Key(key_name);
   }
 
-  Context(){}
+  Context() = default;
 
   // Contructor, creates a context object from a map of keys
   // and identifiers.
