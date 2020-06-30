@@ -47,7 +47,7 @@ public:
     return Key(key_name);
   }
 
-  Context(){}
+  Context() = default.
 
   // Contructor, creates a context object from a map of keys
   // and identifiers.
