@@ -25,25 +25,30 @@ public:
 
   public:
     // Returns the key's identifier.
-    virtual nostd::string_view GetIdentifier(){
+    nostd::string_view GetIdentifier(){
       return "";
     }
     
     // Returns the key's name
-    virtual nostd::string_view GetName(){
+    nostd::string_view GetName(){
       return "";
     }
-
-  private:
-    friend class Context;
+    
+    Key() = default;
 
     // Constructs a new Key with the passed in name. Sets the identifier as
     // the address of this object.
     Key(nostd::string_view key_name){}
+
+ 
+  private:
+    //friend class Context;
+    
+    
   };
 
   // Creates a key with the passed in name and returns it. 
-  virtual Key CreateKey(nostd::string_view key_name){
+  Key CreateKey(nostd::string_view key_name){
     return Key(key_name);
   }
 
