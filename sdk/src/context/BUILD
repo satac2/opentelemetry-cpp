@@ -1,4 +1,3 @@
-
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
@@ -7,7 +6,7 @@ cc_library(
     hdrs = glob(["**/*.h"]),
     include_prefix = "src/context",
     deps = [
-      "//api",
-      "//sdk:headers",
+        "//api",
+        "//sdk:headers",
     ],
 )

@@ -1,4 +1,3 @@
-
 cc_test(
     name = "context_test",
     srcs = [

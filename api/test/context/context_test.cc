@@ -16,16 +16,16 @@ TEST(ContextTest, ContextDefaultConstructorCrash)
 // is provided.
 TEST(ContextTest, ContextIterableConstructorCrash)
 {
-  std::map<std::string, std::string> map_test = {{"test_key","123"}};
-  context::Context context_test = context::Context(map_test);
+  std::map<std::string, std::string> map_test = {{"test_key", "123"}};
+  context::Context context_test               = context::Context(map_test);
 }
 
 // Tests that the WriteValues method does not crash
 TEST(ContextTest, ContextWriteValuesCrash)
 {
-  std::map<std::string, std::string> map_test = {{"test_key","123"}};
-  std::map<std::string, std::string> map_test_write = {{"foo_key","456"}};
-  context::Context context_test = context::Context(map_test);
+  std::map<std::string, std::string> map_test       = {{"test_key", "123"}};
+  std::map<std::string, std::string> map_test_write = {{"foo_key", "456"}};
+  context::Context context_test                     = context::Context(map_test);
   context_test.WriteValues(map_test_write);
 }
 
@@ -39,10 +39,10 @@ TEST(ContextTest, ContextCreateKeyCrash)
 // Tests that the GetValue method does not crash
 TEST(ContextTest, ContextGetValueCrash)
 {
-  std::map<std::string, std::string> map_test = {{"test_key","123"}};
-  std::map<std::string, std::string> map_test_write = {{"foo_key","456"}};
-  context::Context context_test = context::Context(map_test);
-  context::Context::Key test_key = context_test.CreateKey("key_name");
+  std::map<std::string, std::string> map_test       = {{"test_key", "123"}};
+  std::map<std::string, std::string> map_test_write = {{"foo_key", "456"}};
+  context::Context context_test                     = context::Context(map_test);
+  context::Context::Key test_key                    = context_test.CreateKey("key_name");
   EXPECT_EQ(nostd::get<int>(context_test.GetValue(test_key)), 0);
 }
 
@@ -61,4 +61,3 @@ TEST(ContextTest, ContextKeyGetNameCrash)
   context::Context::Key test_key = context_test.CreateKey("key_name");
   EXPECT_EQ(test_key.GetName(), "");
 }
-
