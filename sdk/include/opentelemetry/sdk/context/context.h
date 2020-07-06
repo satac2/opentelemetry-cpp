@@ -28,12 +28,12 @@ public:
     // Returns the key name.
     std::string GetName();
 
+  private:
+    friend class Context;
+
     Key();
 
     Key(std::string name);
-
-  private:
-    friend class Context;
 
     std::string name_;
 
@@ -92,7 +92,6 @@ private:
 
   std::map<std::string, common::AttributeValue> key_vals_;
 };
-
 std::atomic<int> Context::Id::next_(1);
 }  // namespace context
 }  // namespace sdk

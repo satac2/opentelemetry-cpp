@@ -6,11 +6,11 @@ namespace nostd   = opentelemetry::nostd;
 namespace common  = opentelemetry::common;
 namespace context = opentelemetry::sdk::context;
 
-// Test ensurs that the context object doe not change when you write to it */
+// Test ensurs that the context object doe not change when you write to it.
 TEST(ContextTest, ContextImmutability)
 {
 
-  using M                       = std::map<std::string, common::AttributeValue /*std::string*/>;
+  using M                       = std::map<std::string, common::AttributeValue>;
   context::Context test_context = context::Context();
 
   context::Context::Key test_key = test_context.CreateKey("test_key");

@@ -35,7 +35,7 @@ public:
     Key(nostd::string_view key_name) {}
 
   private:
-    // friend class Context;
+    friend class Context;
   };
 
   // Creates a key with the passed in name and returns it.
@@ -51,7 +51,6 @@ public:
 
   // Accepts a new iterable and then returns a new  context that
   // contains both the original pairs and the new pair.
-
   template <class T, nostd::enable_if_t<trace::detail::is_key_value_iterable<T>::value> * = nullptr>
   Context WriteValues(T &attributes) noexcept
   {
