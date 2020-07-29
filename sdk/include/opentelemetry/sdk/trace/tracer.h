@@ -6,7 +6,9 @@
 #include "opentelemetry/trace/tracer.h"
 #include "opentelemetry/trace/noop.h"
 #include "opentelemetry/version.h"
+#include "opentelemetry/context/runtime_context.h"
 
+#include <string>
 #include <memory>
 
 OPENTELEMETRY_BEGIN_NAMESPACE
@@ -56,6 +58,8 @@ public:
 private:
   opentelemetry::sdk::AtomicSharedPtr<SpanProcessor> processor_;
   const std::shared_ptr<Sampler> sampler_;
+  context::RuntimeContext::Token token_;
+  std::string key_;
 };
 }  // namespace trace
 }  // namespace sdk

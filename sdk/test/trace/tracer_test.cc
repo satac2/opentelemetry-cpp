@@ -4,6 +4,7 @@
 #include "opentelemetry/sdk/trace/samplers/parent_or_else.h"
 #include "opentelemetry/sdk/trace/simple_processor.h"
 #include "opentelemetry/sdk/trace/span_data.h"
+#include "opentelemetry/context/threadlocal_context.h"
 
 #include <gtest/gtest.h>
 

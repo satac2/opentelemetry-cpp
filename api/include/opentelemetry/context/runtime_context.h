@@ -19,14 +19,14 @@ public:
 
     ~Token() noexcept { Detach(*this); }
 
+    Token() noexcept = default;
+ 
   private:
     friend class RuntimeContext;
 
     // A constructor that sets the token's Context object to the
     // one that was passed in.
     Token(Context context) noexcept : context_(context){};
-
-    Token() noexcept = default;
 
     Context context_;
   };
