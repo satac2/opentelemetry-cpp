@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "opentelemetry/context/context.h"
 
 OPENTELEMETRY_BEGIN_NAMESPACE
@@ -17,10 +18,23 @@ public:
   public:
     bool operator==(const Context &other) noexcept { return context_ == other; }
 
-    ~Token() noexcept { Detach(*this); }
+    ~Token() noexcept {
+      std::cout << "detaching because of deconstruct" << std::endl;
+       //Detach(*this);
+      }
 
     Token() noexcept = default;
- 
+    
+    /*Token&*/ void operator=(const Token& other){
+      std::cout << "move" << std::endl;
+      if(this == &other){
+        return;// *this;
+      }
+      context_ = other.context_;
+      //other.context_ = Context();
+      //return *this;
+    }
+     
   private:
     friend class RuntimeContext;
 

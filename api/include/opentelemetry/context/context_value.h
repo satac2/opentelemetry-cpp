@@ -11,8 +11,14 @@
 #include "opentelemetry/version.h"
 
 OPENTELEMETRY_BEGIN_NAMESPACE
+namespace trace
+{
+class Span;
+}
 namespace context
 {
+ 
+
 using ContextValue =
     nostd::variant<bool, int64_t, uint64_t, double, nostd::shared_ptr<trace::Span>, nostd::shared_ptr<trace::SpanContext>>;
 }  // namespace context

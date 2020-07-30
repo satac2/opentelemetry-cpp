@@ -120,6 +120,7 @@ void Span::UpdateName(nostd::string_view name) noexcept
 void Span::End(const trace_api::EndSpanOptions &options) noexcept
 {
   std::lock_guard<std::mutex> lock_guard{mu_};
+  context::RuntimeContext::Detach(token_);
   if (recordable_ == nullptr)
   {
     return;

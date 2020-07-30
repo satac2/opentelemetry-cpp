@@ -9,6 +9,7 @@
 #include "opentelemetry/trace/canonical_code.h"
 #include "opentelemetry/trace/key_value_iterable_view.h"
 #include "opentelemetry/version.h"
+#include "opentelemetry/context/runtime_context.h"
 
 OPENTELEMETRY_BEGIN_NAMESPACE
 namespace trace
@@ -73,6 +74,8 @@ public:
   Span(Span &&)      = delete;
   Span &operator=(const Span &) = delete;
   Span &operator=(Span &&) = delete;
+  
+  context::RuntimeContext::Token token_;
 
   // Sets an attribute on the Span. If the Span previously contained a mapping for
   // the key, the old value is replaced.

@@ -16,7 +16,8 @@ class Context
 {
 
 public:
-  Context() = default;
+  Context() = default; 
+
   // Creates a context object from a map of keys and identifiers, this will
   // hold a shared_ptr to the head of the DataList linked list
   template <class T>
